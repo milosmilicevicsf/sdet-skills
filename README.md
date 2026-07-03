@@ -56,7 +56,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills are re
 
 - **[setup-sdet-skills](./skills/automation/setup-sdet-skills/SKILL.md)** — Configure a repo for these skills: framework, layout, data strategy, locator convention, tags, retry policy → `docs/agents/testing.md`. Run once per repo.
 - **[automate-scenario](./skills/automation/automate-scenario/SKILL.md)** — Turn a user story, manual test case, or bug report into automated tests: interview for the promise, split across layers, implement one verified slice at a time.
-- **[audit-test-suite](./skills/automation/audit-test-suite/SKILL.md)** — Scan a whole suite for trust, stability, cost, and coverage findings; deliver a prioritized report with a verdict and a top three.
+- **[audit-test-suite](./skills/automation/audit-test-suite/SKILL.md)** — Scan a whole suite for trust, stability, cost, and coverage findings; deliver a visual HTML report with a verdict and a top three.
 - **[triage-flaky](./skills/automation/triage-flaky/SKILL.md)** — Drain a flaky-test backlog: rank by signal damage, diagnose the worst, and leave every test fixed, quarantined with a ticket, or deleted.
 
 ### Model-invoked

@@ -1,6 +1,6 @@
 ---
 name: audit-test-suite
-description: Scan an entire test suite for trust, cost, and coverage problems, and present a prioritized findings report.
+description: Scan an entire test suite for trust, cost, and coverage problems, and present a prioritized findings report as a visual HTML file.
 disable-model-invocation: true
 ---
 
@@ -27,10 +27,16 @@ For CI-history questions (which tests actually flake, what actually times out), 
 
 ## 3. Report
 
-Deliver a prioritized report, not a lint dump:
+Deliver a prioritized report as a **visual HTML file**, not just chat prose. See [HTML-REPORT.md](HTML-REPORT.md) for the scaffold, sections, and styling.
 
-1. **Verdict** — one paragraph: can this suite be trusted to gate releases, and what's the biggest reason it can/can't.
+Write the file to the OS temp directory (`<tmpdir>/test-suite-audit-<timestamp>.html` — use `%TEMP%` on Windows, `$TMPDIR` or `/tmp` elsewhere). Open it for the user (`start` / `open` / `xdg-open`) and give them the absolute path. Nothing from the audit lands in the repo.
+
+The report must contain:
+
+1. **Verdict** — one paragraph: can this suite be trusted to gate releases, and what's the biggest reason it can/can't. Rendered as a prominent callout box (see HTML-REPORT.md).
 2. **Findings by severity** — trust, then stability, then cost, then coverage. Each finding: the pattern, file/line instances (grouped — one entry per pattern, not per occurrence), and the direction of the fix. Cap at what's actionable; 400 instances of one pattern is one finding with a count.
 3. **The top three** — if the team fixes only three things, which, and why those.
+
+A short summary in chat is fine — point the user at the HTML file for the full report.
 
 Offer to turn accepted findings into tracked issues, and to fix the mechanical classes (locator climbs, sleep-to-signal conversions) directly — one pattern class per PR, so each is reviewable.
