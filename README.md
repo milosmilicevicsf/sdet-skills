@@ -31,6 +31,23 @@ These skills encode the disciplines that prevent that:
 - **A manual test case is not a spec** — extract the promise, then pick the cheapest layer that proves it (`automate-scenario`).
 - **Tests can lie** — tautologies, vacuous assertions, and retry-as-fix make a suite worse than no suite (`test-review`, `audit-test-suite`).
 
+## The Flow
+
+These skills chain the same way [mattpocock/skills](https://github.com/mattpocock/skills) chain (`/grill-with-docs` → `/to-prd` → `/to-issues` → implement → `/code-review`) — and they're designed to plug into that flow, not replace it.
+
+**The core loop** — new coverage for a feature, story, or bug report:
+
+1. **`/setup-sdet-skills`** — once per repo. Records framework, layout, data strategy, locator convention, and retry policy into `docs/agents/testing.md`, so every later step reads facts instead of guessing.
+2. **`/automate-scenario`** — per scenario. The grilling is built in: an interview extracts the *promise* (capabilities, unhappy paths), the *layer split* (what needs a browser vs. what the API layer proves cheaper), and the *oracle* (where expected values come from). Then implementation runs one verified vertical slice at a time — and the discipline skills (`writing-e2e-tests`, `locator-strategy`, `api-testing`, `test-data-management`) fire automatically as the code gets written.
+3. **`test-review`** — fires on test code in review: would this test catch its bug, and can it lie?
+
+**The maintenance loop** — keeping an existing suite trustworthy:
+
+- **`/audit-test-suite`** every few weeks — a whole-suite scan for trust, stability, cost, and coverage findings, prioritized.
+- **`/triage-flaky`** when the flaky backlog grows — rank by signal damage, diagnose the worst via `diagnosing-flaky-tests`, and leave every test fixed, quarantined with a ticket, or deleted.
+
+**Running both skill sets?** The seams: use Matt's `/grill-with-docs` → `/to-prd` → `/to-issues` to spec the feature; when an issue is about *product code*, implement it with his `tdd`; when it's about *coverage*, run `/automate-scenario`. His `/code-review` and this repo's `test-review` are complementary axes on the same PR, and `/audit-test-suite` is to your test suite what his `/improve-codebase-architecture` is to your source.
+
 ## Reference
 
 Skills split on one axis — who can invoke them. **User-invoked** skills are reachable only when you type them (e.g. `/audit-test-suite`); they orchestrate a session. **Model-invoked** skills fire automatically when the task fits; they hold the reusable discipline the orchestrators lean on.
