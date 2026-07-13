@@ -28,6 +28,9 @@ These skills encode the disciplines that prevent that:
 - **A test owns its data** — most "flaky" suites are data-ownership violations wearing a timing costume (`test-data-management`).
 - **A locator is a bet on what won't change** — bet on what the user sees, not on markup (`locator-strategy`).
 - **E2E is for journeys; everything else goes down a layer** — variations and error contracts belong at the API layer at a fraction of the cost (`writing-e2e-tests`, `api-testing`).
+- **The cheapest layer that proves a behavior wins** — UI states and rendering logic belong in component tests, not another end-to-end (`component-testing`).
+- **A page object is an API, not a selector bag** — it exposes what a user can do and keeps the promise in the test, or it just relocates the duplication (`page-object-model`).
+- **Mock the edge you don't own, never the thing under test** — a stub with no link to the real contract is a green light for a broken integration (`network-mocking`).
 - **A manual test case is not a spec** — extract the promise, then pick the cheapest layer that proves it (`automate-scenario`).
 - **Tests can lie** — tautologies, vacuous assertions, and retry-as-fix make a suite worse than no suite (`test-review`, `audit-test-suite`).
 
@@ -38,7 +41,7 @@ These skills chain the same way [mattpocock/skills](https://github.com/mattpococ
 **The core loop** — new coverage for a feature, story, or bug report:
 
 1. **`/setup-sdet-skills`** — once per repo. Records framework, layout, data strategy, locator convention, and retry policy into `docs/agents/testing.md`, so every later step reads facts instead of guessing.
-2. **`/automate-scenario`** — per scenario. The grilling is built in: an interview extracts the *promise* (capabilities, unhappy paths), the *layer split* (what needs a browser vs. what the API layer proves cheaper), and the *oracle* (where expected values come from). Then implementation runs one verified vertical slice at a time — and the discipline skills (`writing-e2e-tests`, `locator-strategy`, `api-testing`, `test-data-management`) fire automatically as the code gets written.
+2. **`/automate-scenario`** — per scenario. The grilling is built in: an interview extracts the *promise* (capabilities, unhappy paths), the *layer split* (what needs a browser vs. what the API layer proves cheaper), and the *oracle* (where expected values come from). Then implementation runs one verified vertical slice at a time — and the discipline skills (`writing-e2e-tests`, `component-testing`, `locator-strategy`, `page-object-model`, `api-testing`, `network-mocking`, `test-data-management`) fire automatically as the code gets written.
 3. **`test-review`** — fires on test code in review: would this test catch its bug, and can it lie?
 
 **The maintenance loop** — keeping an existing suite trustworthy:
@@ -62,8 +65,11 @@ Skills split on one axis — who can invoke them. **User-invoked** skills are re
 ### Model-invoked
 
 - **[writing-e2e-tests](./skills/automation/writing-e2e-tests/SKILL.md)** — What a UI e2e test is (a user journey) and the laws that follow: independence, signal-based waiting, user-visible assertions. With an [anti-pattern catalogue](./skills/automation/writing-e2e-tests/anti-patterns.md).
+- **[component-testing](./skills/automation/component-testing/SKILL.md)** — The layer between unit and e2e: real component, real DOM, real events, data stubbed at the edge — where UI states and logic belong instead of another journey.
 - **[locator-strategy](./skills/automation/locator-strategy/SKILL.md)** — The selector ladder (role → label → text → test id → structure-free CSS) and what to do when a locator breaks.
+- **[page-object-model](./skills/automation/page-object-model/SKILL.md)** — Page objects as a behavior API, not a selector bag: capabilities over getters, assertions in the test, and how to audit a layer that hurts.
 - **[api-testing](./skills/automation/api-testing/SKILL.md)** — Contract-level assertions, deliberate unhappy paths, verifying through the interface, and pushing coverage below the UI.
+- **[network-mocking](./skills/automation/network-mocking/SKILL.md)** — Mock the boundary you don't own, never the thing under test; keep stubs tied to the real contract and assert the outcome, not the call.
 - **[test-data-management](./skills/automation/test-data-management/SKILL.md)** — Factories with overrides, collision-proof identity, isolation, and cleanup that survives failure.
 - **[diagnosing-flaky-tests](./skills/automation/diagnosing-flaky-tests/SKILL.md)** — The diagnosis loop: raise the reproduction rate, name the race, fix it, prove it with the same loop.
 - **[test-review](./skills/automation/test-review/SKILL.md)** — Four review axes for test code: does it test behavior, can the assertion lie, will it hold up in the suite, does it read as a spec.
