@@ -44,4 +44,4 @@ Then add a pointer so agents find it. If `CLAUDE.md` or `AGENTS.md` exists, add 
 
 ### 4. Done
 
-Tell the user which skills now read this file (`writing-e2e-tests`, `api-testing`, `test-data-management`, `automate-scenario`, `audit-test-suite`), and that editing `docs/agents/testing.md` directly is the normal way to change these facts — re-running this skill is only for starting over.
+Tell the user which skills now read this file (`writing-e2e-tests`, `component-testing`, `page-object-model`, `api-testing`, `network-mocking`, `test-data-management`, `automate-scenario`, `audit-test-suite`), and that editing `docs/agents/testing.md` directly is the normal way to change these facts — re-running this skill is only for starting over.
