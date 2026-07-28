@@ -25,6 +25,7 @@ Coding agents are good at producing tests and bad at producing *trustworthy* tes
 These skills encode the disciplines that prevent that:
 
 - **A flaky test is a bug with a reproduction rate** — you raise the rate and find the race; you never retry it away (`diagnosing-flaky-tests`, `triage-flaky`).
+- **A fix changes the logic, not the odds** — sleeps, retry loops, soft assertions and force clicks raise the pass rate and leave the race in place (`fixing-flaky-tests`).
 - **A test owns its data** — most "flaky" suites are data-ownership violations wearing a timing costume (`test-data-management`).
 - **A locator is a bet on what won't change** — bet on what the user sees, not on markup (`locator-strategy`).
 - **E2E is for journeys; everything else goes down a layer** — variations and error contracts belong at the API layer at a fraction of the cost (`writing-e2e-tests`, `api-testing`).
@@ -47,7 +48,7 @@ These skills chain the same way [mattpocock/skills](https://github.com/mattpococ
 **The maintenance loop** — keeping an existing suite trustworthy:
 
 - **`/audit-test-suite`** every few weeks — a whole-suite scan for trust, stability, cost, and coverage findings, prioritized.
-- **`/triage-flaky`** when the flaky backlog grows — rank by signal damage, diagnose the worst via `diagnosing-flaky-tests`, and leave every test fixed, quarantined with a ticket, or deleted.
+- **`/triage-flaky`** when the flaky backlog grows — rank by signal damage, diagnose the worst via `diagnosing-flaky-tests`, repair them to the `fixing-flaky-tests` bar, and leave every test fixed, quarantined with a ticket, or deleted.
 
 **Running both skill sets?** The seams: use Matt's `/grill-with-docs` → `/to-prd` → `/to-issues` to spec the feature; when an issue is about *product code*, implement it with his `tdd`; when it's about *coverage*, run `/automate-scenario`. His `/code-review` and this repo's `test-review` are complementary axes on the same PR, and `/audit-test-suite` is to your test suite what his `/improve-codebase-architecture` is to your source.
 
@@ -72,6 +73,7 @@ Skills split on one axis — who can invoke them. **User-invoked** skills are re
 - **[network-mocking](./skills/automation/network-mocking/SKILL.md)** — Mock the boundary you don't own, never the thing under test; keep stubs tied to the real contract and assert the outcome, not the call.
 - **[test-data-management](./skills/automation/test-data-management/SKILL.md)** — Factories with overrides, collision-proof identity, isolation, and cleanup that survives failure.
 - **[diagnosing-flaky-tests](./skills/automation/diagnosing-flaky-tests/SKILL.md)** — The diagnosis loop: raise the reproduction rate, name the race, fix it, prove it with the same loop.
+- **[fixing-flaky-tests](./skills/automation/fixing-flaky-tests/SKILL.md)** — The bar the repair must clear: replace the assumption with a guarantee, in the smallest diff that holds — with the counterfeit-fix catalogue (retries, sleeps, poll loops, soft asserts, conditional flow, force clicks) and the two proofs.
 - **[test-review](./skills/automation/test-review/SKILL.md)** — Four review axes for test code: does it test behavior, can the assertion lie, will it hold up in the suite, does it read as a spec.
 
 ## Pairs well with
