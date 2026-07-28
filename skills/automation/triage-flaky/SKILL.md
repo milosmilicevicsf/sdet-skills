@@ -10,7 +10,7 @@ A session for when flakiness is a *backlog*, not a bug: CI is red-ish, nobody tr
 
 The three terminal states:
 
-- **Fixed** — race found and removed, proven by a loop (per the `diagnosing-flaky-tests` skill).
+- **Fixed** — race found (per `diagnosing-flaky-tests`) and removed to the standard in `fixing-flaky-tests`: proven by the loop, and still able to fail.
 - **Quarantined** — a tracked skip with an issue link and an owner. Visible debt.
 - **Deleted** — the test's promise is covered elsewhere or wasn't worth keeping. Deletion is a legitimate outcome; say so early, because teams hoard tests.
 

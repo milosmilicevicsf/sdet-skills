@@ -35,7 +35,7 @@ State the race as a falsifiable sentence: "the test clicks Submit before the car
 
 ## Phase 3 — Fix and prove
 
-Fix the race itself: wait on the missing signal, isolate the data, pin the clock. Forbidden fixes: `waitForTimeout`, `retries`, marking it `flaky`/`skip`, reordering tests to hide pollution.
+Fix the race itself: wait on the missing signal, isolate the data, pin the clock. Forbidden fixes: `waitForTimeout`, `retries`, marking it `flaky`/`skip`, reordering tests to hide pollution. For the full standard the repair has to meet — the three honest shapes of a fix, the counterfeit catalogue, and the two proofs — see the `fixing-flaky-tests` skill.
 
 **Prove it with the Phase 1 loop:** the same command at the same stress level, 0 failures over at least as many runs as reliably reproduced it before. A fix you haven't looped is a guess.
 
