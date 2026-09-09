@@ -29,7 +29,7 @@ Flakiness is nearly always one of these; check in order of frequency:
 - **Data collision** — two parallel runs grabbing the same record. The tell: "already exists", deadlocks, 409s.
 - **Time dependence** — assumes a timezone, date boundary, or "fast enough" machine. The tell: fails at midnight, month-end, or only in CI.
 - **Infrastructure** — CI runner variance, third-party outages. Real, but blame it last: infrastructure is where undiagnosed races hide.
-- **App bug** — the race is in the product, not the test. A flaky test that catches a real race is doing its job; file the bug, don't silence the test.
+- **App bug** — the race is in the product, not the test. A flaky test that catches a real race is doing its job; file the bug (the `reporting-bugs` skill), don't silence the test.
 
 State the race as a falsifiable sentence: "the test clicks Submit before the cart POST resolves; if I wait on the response, the failure rate drops to 0."
 

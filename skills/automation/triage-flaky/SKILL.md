@@ -32,7 +32,7 @@ For each test inside the budget, run the `diagnosing-flaky-tests` loop: reproduc
 
 For each test outside the budget: quarantine — skip annotation, issue with the evidence gathered in step 1, owner. Never a bare skip.
 
-If a diagnosis reveals a product bug (the race is in the app), file it as such and leave the test red-capable — a test that catches a real race is the suite working.
+If a diagnosis reveals a product bug (the race is in the app), file it per the `reporting-bugs` skill and leave the test red-capable — a test that catches a real race is the suite working.
 
 ## 4. Report
 
