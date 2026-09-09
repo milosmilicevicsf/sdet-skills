@@ -20,7 +20,7 @@ Sweep the suite for each finding class. Use search (grep patterns, then read hit
 
 - **Trust findings** — tests that can lie: tautological assertions, vacuous/conditional assertions, retry-as-fix, `skip`/`only` left enabled, tests asserting nothing beyond "no error". Judged per the `test-review` skill's axes.
 - **Stability findings** — races waiting to fire: sleeps, conditional flow, shared accounts, hard-coded unique values, cleanup that skips on failure. Per the `writing-e2e-tests` anti-pattern catalogue and the `test-data-management` skill.
-- **Cost findings** — spend without return: e2e tests provable at the API layer, mega-tests, duplicated journeys, structure-pinned locators (per the `locator-strategy` ladder), UI-driven setup.
+- **Cost findings** — spend without return: e2e tests provable at a lower layer (per the `test-pyramid` skill), mega-tests, duplicated journeys, structure-pinned locators (per the `locator-strategy` ladder), UI-driven setup.
 - **Coverage findings** — the gaps: promises in the spec/PRD with no test at any layer, untested error contracts, journeys with assertions only at the end. Coverage here means *behavior* coverage — line-coverage numbers don't answer it.
 
 For CI-history questions (which tests actually flake, what actually times out), use real run data if accessible; otherwise mark those findings as static-analysis-only.

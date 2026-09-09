@@ -8,14 +8,14 @@ disable-model-invocation: true
 
 Take a scenario — user story, manual test case, acceptance criteria, bug report — and turn it into automated tests worth keeping. The failure mode this skill prevents: transcribing manual steps into browser commands and calling it automation. A manual test case describes *how a human checks*; an automated test asserts *what the product promises*. Extract the promise, then choose the cheapest layer that proves it.
 
-Read `docs/agents/testing.md` (if it exists) before starting; it answers framework, layout, data, and tag questions so you don't re-ask them.
+Read `docs/agents/testing.md` (if it exists) before starting; it answers framework, layout, data, and tag questions so you don't re-ask them. If a `/analyze-story` analysis exists for this scenario, start from it — the capabilities, risks, and layer split are already drafted; confirm them instead of re-interviewing.
 
 ## 1. Interview
 
 Interview the user **one question at a time**; if the codebase can answer a question, explore instead of asking. Resolve, in order:
 
 1. **The promise.** What behavior must hold? Restate the scenario as capabilities ("user can X", "given Y the system Z") and confirm the list is complete — including the unhappy paths the manual case implies but doesn't spell out.
-2. **The layer split.** For each capability: does proving it need a browser? Propose the split explicitly — e.g. "validation variants at the API layer, one happy-path journey e2e" — and get agreement. This is the decision that determines the suite's cost forever; per the `api-testing` skill, most variations belong below the UI.
+2. **The layer split.** For each capability: does proving it need a browser? Propose the split explicitly — e.g. "validation variants at the API layer, one happy-path journey e2e" — and get agreement. This is the decision that determines the suite's cost forever; per the `test-pyramid` skill, most variations belong below the UI.
 3. **The oracle.** For each capability, where does the expected value come from — spec, existing behavior, the user's head? If the answer is "whatever the app currently does", flag it: that's a characterization test, worth having but worth labeling.
 4. **Reality check.** Does the feature exist and work today? Automating against a broken feature produces a red suite nobody trusts; note known bugs and decide together: skip-with-ticket or assert-the-bug-fixed.
 

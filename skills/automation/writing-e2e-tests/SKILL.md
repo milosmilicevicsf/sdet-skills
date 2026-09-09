@@ -11,7 +11,7 @@ When exploring the codebase, read `docs/agents/testing.md` (if it exists) for th
 
 ## Journeys, not page tours
 
-A test earns its e2e cost by covering a journey a user actually takes — "user can check out with a saved card" — not by visiting pages and asserting they render. If a behavior can be verified at a cheaper layer (unit, API), test it there; e2e is reserved for what only the full stack can prove. Before writing, name the journey and the layer: if you can't say why this must be e2e, it shouldn't be.
+A test earns its e2e cost by covering a journey a user actually takes — "user can check out with a saved card" — not by visiting pages and asserting they render. If a behavior can be verified at a cheaper layer (unit, API), test it there — the `test-pyramid` skill holds the cost model; e2e is reserved for what only the full stack can prove. Before writing, name the journey and the layer: if you can't say why this must be e2e, it shouldn't be.
 
 ## Independence
 

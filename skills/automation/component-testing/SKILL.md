@@ -11,7 +11,7 @@ Read `docs/agents/testing.md` (if it exists) for the project's component-test ru
 
 ## Push UI logic here, keep the journey thin
 
-An e2e should prove one thing about a component: that it's wired into the real app. Everything else about it — loading, empty, error, and success states, conditional rendering, form-validation display, enabled/disabled logic, edge props — is provable here at a fraction of the cost and none of the flakiness. This is the layer split from the `writing-e2e-tests` and `api-testing` skills applied to the front end: one journey e2e, every UI variation as a component test.
+An e2e should prove one thing about a component: that it's wired into the real app. Everything else about it — loading, empty, error, and success states, conditional rendering, form-validation display, enabled/disabled logic, edge props — is provable here at a fraction of the cost and none of the flakiness. This is the `test-pyramid` skill's layer split applied to the front end: one journey e2e, every UI variation as a component test.
 
 ```typescript
 // GOOD: the state matrix a browser journey should never carry

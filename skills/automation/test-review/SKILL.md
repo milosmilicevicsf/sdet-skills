@@ -25,7 +25,7 @@ The test must fail if the behavior breaks, and survive if only the implementatio
 - Owns its data (unique identity, sanctioned creation, teardown that runs on failure) — violations per the `test-data-management` skill.
 - No sleeps, no conditional flow, no retry-as-fix — violations per the `writing-e2e-tests` anti-pattern catalogue.
 - Locators bet on behavior, not markup — per the `locator-strategy` ladder.
-- Right layer: an e2e test proving something an API test could prove is a cost finding, not a style nit.
+- Right layer: an e2e test proving something a lower layer could prove is a cost finding, not a style nit (the `test-pyramid` skill).
 
 ## Axis 4 — Does it read as a specification?
 

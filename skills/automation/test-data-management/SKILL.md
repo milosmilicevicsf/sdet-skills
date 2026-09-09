@@ -5,7 +5,7 @@ description: Test data discipline — factories, isolation, cleanup. Use when se
 
 # Test Data Management
 
-Every law of test data follows from one principle: **a test owns its data**. It creates what it needs, nothing else can touch it, and its disappearance affects no other test. Most "flaky" suites are data-ownership violations wearing a timing costume.
+Every law of test data follows from one principle: **a test owns its data**. It creates what it needs, nothing else can touch it, and its disappearance affects no other test. Most "flaky" suites are data-ownership violations wearing a timing costume. (Data at dataset scale — seeds, synthetic and bulk datasets, production-derived data — is the `generating-test-data` skill.)
 
 ## Creation
 

@@ -81,4 +81,4 @@ Then close the loop where conventions live: if `docs/agents/testing.md` doesn't 
 
 Sometimes there is no test-side guarantee to wait on, because the product never exposes one — nothing distinguishes "loaded" from "still empty", or the app really does race with itself. Adding a `data-state="ready"` attribute, fixing the debounce, or making the mutation await its own refetch is a *smaller and stronger* fix than anything the test could do about it, and it fixes it for every future test too.
 
-Don't treat "I can't touch app code" as a fact of nature — raise it as the finding it is. And if the race turns out to be in the product, the flaky test was working: file the bug, keep the test capable of going red, and fix the app.
+Don't treat "I can't touch app code" as a fact of nature — raise it as the finding it is. And if the race turns out to be in the product, the flaky test was working: file the bug per the `reporting-bugs` skill, keep the test capable of going red, and fix the app.
