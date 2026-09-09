@@ -40,7 +40,7 @@ These skills encode the disciplines that prevent that:
 
 ## The Flow
 
-These skills chain the same way [mattpocock/skills](https://github.com/mattpocock/skills) chain (`/grill-with-docs` → `/to-prd` → `/to-issues` → implement → `/code-review`) — and they're designed to plug into that flow, not replace it.
+These skills chain the same way [mattpocock/skills](https://github.com/mattpocock/skills) chain (`/grill-with-docs` → `/to-spec` → `/to-tickets` → implement → `/code-review`) — and they're designed to plug into that flow, not replace it.
 
 **The core loop** — new coverage for a feature, story, or bug report:
 
@@ -54,7 +54,7 @@ These skills chain the same way [mattpocock/skills](https://github.com/mattpococ
 - **`/audit-test-suite`** every few weeks — a whole-suite scan for trust, stability, cost, and coverage findings, prioritized.
 - **`/triage-flaky`** when the flaky backlog grows — rank by signal damage, diagnose the worst via `diagnosing-flaky-tests`, repair them to the `fixing-flaky-tests` bar, and leave every test fixed, quarantined with a ticket, or deleted.
 
-**Running both skill sets?** The seams: use Matt's `/grill-with-docs` → `/to-prd` → `/to-issues` to spec the feature — `/analyze-story` slots into that same phase from the other side: his grilling designs the feature, this one asks what it breaks and where to prove it. When an issue is about *product code*, implement it with his `tdd`; when it's about *coverage*, run `/automate-scenario`. His `/code-review` and this repo's `test-review` are complementary axes on the same PR, and `/audit-test-suite` is to your test suite what his `/improve-codebase-architecture` is to your source.
+**Running both skill sets?** The seams: use Matt's `/grill-with-docs` → `/to-spec` → `/to-tickets` to spec the feature — `/analyze-story` slots into that same phase from the other side: his grilling designs the feature, this one asks what it breaks and where to prove it. When an issue is about *product code*, implement it with his `tdd`; when it's about *coverage*, run `/automate-scenario`. His `/code-review` and this repo's `test-review` are complementary axes on the same PR, and `/audit-test-suite` is to your test suite what his `/improve-codebase-architecture` is to your source.
 
 ## Reference
 
