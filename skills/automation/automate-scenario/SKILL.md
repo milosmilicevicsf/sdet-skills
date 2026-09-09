@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Take a scenario — user story, manual test case, acceptance criteria, bug report — and turn it into automated tests worth keeping. The failure mode this skill prevents: transcribing manual steps into browser commands and calling it automation. A manual test case describes *how a human checks*; an automated test asserts *what the product promises*. Extract the promise, then choose the cheapest layer that proves it.
 
-Read `docs/agents/testing.md` (if it exists) before starting; it answers framework, layout, data, and tag questions so you don't re-ask them.
+Read `docs/agents/testing.md` (if it exists) before starting; it answers framework, layout, data, and tag questions so you don't re-ask them. If a `/analyze-story` analysis exists for this scenario, start from it — the capabilities, risks, and layer split are already drafted; confirm them instead of re-interviewing.
 
 ## 1. Interview
 
