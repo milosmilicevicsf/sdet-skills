@@ -11,7 +11,7 @@ When exploring the codebase, read `docs/agents/testing.md` (if it exists) for ba
 
 ## Push tests down to this layer
 
-Before writing an e2e test, ask: does this behavior need a browser to prove? Validation rules, permissions, edge cases, error codes, pagination — all provable here at a fraction of the cost. The UI test then only needs the happy path that proves the wiring. One journey e2e, every variation at the API layer.
+Before writing an e2e test, ask: does this behavior need a browser to prove? Validation rules, permissions, edge cases, error codes, pagination — all provable here at a fraction of the cost. The UI test then only needs the happy path that proves the wiring. One journey e2e, every variation at the API layer (the `test-pyramid` skill).
 
 ## Assert the contract, tolerate the rest
 

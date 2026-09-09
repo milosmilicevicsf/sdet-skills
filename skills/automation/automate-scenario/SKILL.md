@@ -15,7 +15,7 @@ Read `docs/agents/testing.md` (if it exists) before starting; it answers framewo
 Interview the user **one question at a time**; if the codebase can answer a question, explore instead of asking. Resolve, in order:
 
 1. **The promise.** What behavior must hold? Restate the scenario as capabilities ("user can X", "given Y the system Z") and confirm the list is complete — including the unhappy paths the manual case implies but doesn't spell out.
-2. **The layer split.** For each capability: does proving it need a browser? Propose the split explicitly — e.g. "validation variants at the API layer, one happy-path journey e2e" — and get agreement. This is the decision that determines the suite's cost forever; per the `api-testing` skill, most variations belong below the UI.
+2. **The layer split.** For each capability: does proving it need a browser? Propose the split explicitly — e.g. "validation variants at the API layer, one happy-path journey e2e" — and get agreement. This is the decision that determines the suite's cost forever; per the `test-pyramid` skill, most variations belong below the UI.
 3. **The oracle.** For each capability, where does the expected value come from — spec, existing behavior, the user's head? If the answer is "whatever the app currently does", flag it: that's a characterization test, worth having but worth labeling.
 4. **Reality check.** Does the feature exist and work today? Automating against a broken feature produces a red suite nobody trusts; note known bugs and decide together: skip-with-ticket or assert-the-bug-fixed.
 
